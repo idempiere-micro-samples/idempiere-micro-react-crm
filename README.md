@@ -9,7 +9,7 @@ This application is a fork of [harryho/react-crm](https://github.com/harryho/rea
 - This project is built on the top of React/Redux.
 - The UI part of this project uses Material-UI.
 - This project uses Redux-Thunk to support back-end API.
-- ~~To simulate real-world business, this starter project chooses Json-Server as fake Restful API. (You can simple replace it with your own API)~~
+- The GraphQL API backend is provided by [iDempiere Micro Java 8 EE](https://github.com/iDempiere-micro/idempiere-micro-liberty-standalone)
 
 * Fake API is just readonly fake service.
 * CRUD functions for Customer, Order and Product
