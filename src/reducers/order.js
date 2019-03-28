@@ -42,7 +42,7 @@ export function orderReducer(
     case LOAD_ORDERS_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        orderList: JSON.parse(action.response).filter(e => {
+        orderList: action.response.salesOrders.filter(e => {
           if (action.filters) {
             if (action.filters.product)
               return e.product.indexOf(action.filters.product) > -1;

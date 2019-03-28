@@ -302,7 +302,7 @@ class CustomerListPage extends React.Component {
                   URL
                 </TableHeaderColumn>
                 <TableHeaderColumn style={styles.columns.price}>
-                  Rewards
+                  Categories
                 </TableHeaderColumn>
                 <TableHeaderColumn style={styles.columns.category}>
                   Customer
@@ -329,8 +329,14 @@ class CustomerListPage extends React.Component {
                   <TableRowColumn style={styles.columns.name}>
                     {item.URL}
                   </TableRowColumn>
-                  <TableRowColumn style={styles.columns.price}>
-                    {item.rewards}
+                  <TableRowColumn style={styles.columns.category}>                    
+                  <ul>
+                    {item.categories.map(function(object) {
+                      return (
+                        <li key={object.id}>{object.name}</li>
+                      );
+                    })}
+                    </ul>
                   </TableRowColumn>
                   <TableRowColumn style={styles.columns.category}>
                     {item.IsCustomer ? <CheckCircle /> : <Cancel />}

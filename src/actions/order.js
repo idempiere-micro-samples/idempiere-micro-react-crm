@@ -23,7 +23,7 @@ import {
 export function loadOrders(filters) {
   return {
     [CALL_API]: {
-      endpoint: "orders?_expand=customer",
+      query: "salesOrders { DocumentNo Description DateOrderedISOFormat GrandTotal Customer { id name } }",
       orders: [],
       filters: filters,
       types: [LOAD_ORDERS_REQUEST, LOAD_ORDERS_SUCCESS, LOAD_ORDERS_FAILURE]

@@ -23,7 +23,7 @@ import {
 export function loadCustomers(filters) {
   return {
     [CALL_API]: {
-      query: "businessPartners { id name searchKey IsCustomer URL categories locations contacts}",
+      query: "businessPartners { id name searchKey IsCustomer URL categories {id name} }",
       customers: [],
       filters: filters,
       types: [

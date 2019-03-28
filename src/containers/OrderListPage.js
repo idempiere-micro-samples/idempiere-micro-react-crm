@@ -311,24 +311,24 @@ class OrderListPage extends React.Component {
               {this.state.pageOfItems.map(item => (
                 <TableRow key={item.id}>
                   <TableRowColumn style={styles.columns.name}>
-                    {item.reference}
+                    {item.DocumentNo}
                   </TableRowColumn>
                   <TableRowColumn style={styles.columns.price}>
-                    {item.products.length}
+                    0
                   </TableRowColumn>
                   <TableRowColumn style={styles.columns.price}>
-                    AUD ${item.amount}
+                    ${item.GrandTotal}
                   </TableRowColumn>
                   <TableRowColumn style={styles.columns.price}>
-                    {item.orderDate}
+                    {item.DateOrderedISOFormat}
                   </TableRowColumn>
                   <TableRowColumn style={styles.columns.price}>
-                    {item.shippedDate}
+                  {item.DateOrderedISOFormat}
                   </TableRowColumn>
                   {/*<TableRowColumn style={styles.columns.price}>{item.quantity * item.price}</TableRowColumn>*/}
                   <TableRowColumn style={styles.columns.category}>
-                    {item.customer
-                      ? item.customer.firstName + " " + item.customer.lastName
+                    {item.Customer
+                      ? item.Customer.name
                       : ""}
                   </TableRowColumn>
                   <TableRowColumn style={styles.columns.edit}>
