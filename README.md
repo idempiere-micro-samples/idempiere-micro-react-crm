@@ -4,6 +4,8 @@
 
 This application is a fork of [harryho/react-crm](https://github.com/harryho/react-crm).
 
+![demo1](https://github.com/idempiere-micro-samples/idempiere-micro-react-crm/blob/master/screenshots/Peek%202019-04-12%2017-40.gif?raw=true)
+
 ### Features
 
 - This project is built on the top of React/Redux.
