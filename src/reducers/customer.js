@@ -46,13 +46,12 @@ export function customerReducer(
               if (action.filters) {
                 if (action.filters.firstName && action.filters.lastName)
                   return (
-                    e.firstName.indexOf(action.filters.firstName) > -1 &&
-                    e.lastName.indexOf(action.filters.lastName) > -1
+                    e.name.indexOf(action.filters.firstName) > -1
                   );
                 else if (action.filters.firstName)
-                  return e.firstName.indexOf(action.filters.firstName) > -1;
+                  return e.name.indexOf(action.filters.firstName) > -1;
                 else if (action.filters.lastName)
-                  return e.lastName.indexOf(action.filters.lastName) > -1;
+                  return e.name.indexOf(action.filters.lastName) > -1;
               }
               return true;
             })

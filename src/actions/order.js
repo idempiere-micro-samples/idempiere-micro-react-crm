@@ -23,7 +23,7 @@ import {
 export function loadOrders(filters) {
   return {
     [CALL_API]: {
-      query: "salesOrders { DocumentNo Description DateOrderedISOFormat GrandTotal Customer { id name } }",
+      query: "salesOrders { id DocumentNo Description DateOrderedISOFormat GrandTotal Customer { id name } }",
       orders: [],
       filters: filters,
       types: [LOAD_ORDERS_REQUEST, LOAD_ORDERS_SUCCESS, LOAD_ORDERS_FAILURE]
@@ -34,7 +34,7 @@ export function loadOrders(filters) {
 export function getOrder(id) {
   return {
     [CALL_API]: {
-      endpoint: `orders/${id}?_expand=customer`,
+      query: `salesOrder(id: ${id}) { DocumentNo Description DateOrderedISOFormat GrandTotal Customer { id name } Lines { Product { id name } QtyOrdered UOM {Name UOMSymbol}} BusinessPartnerLocation { location { address1 address2 address3 address4 address5 city countryName } } }`,
       order: {},
       types: [GET_ORDER_REQUEST, GET_ORDER_SUCCESS, GET_ORDER_FAILURE]
     }

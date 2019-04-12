@@ -238,7 +238,7 @@ class OrderFormPage extends React.Component {
               <GridTile>
                 <FormsySelect
                   floatingLabelText="Customer"
-                  value={order.customer ? order.customer.id : 0}
+                  value={order.Customer ? order.Customer.id : 0}
                   onChange={this.handleChange}
                   style={styles.customWidth}
                   name="customerId"
@@ -250,8 +250,8 @@ class OrderFormPage extends React.Component {
                       value={customer.id}
                       style={styles.menuItem}
                       primaryText={
-                        customer.firstName
-                          ? customer.firstName + " " + customer.lastName
+                        customer.name
+                          ? customer.name
                           : ""
                       }
                     />
@@ -265,7 +265,7 @@ class OrderFormPage extends React.Component {
                   name="reference"
                   onChange={this.handleChange}
                   fullWidth={true}
-                  value={order.reference ? order.reference : ""}
+                  value={order.DocumentNo ? order.DocumentNo : ""}
                   validations={{
                     isWords: true
                   }}
@@ -291,7 +291,7 @@ class OrderFormPage extends React.Component {
                     isNumeric: "Please provide valid price",
                     isDefaultRequiredValue: "This is a required field"
                   }}
-                  value={order.amount}
+                  value={order.GrandTotal}
                   required
                 />
               </GridTile>
@@ -323,7 +323,7 @@ class OrderFormPage extends React.Component {
                   name="orderDate"
                   onChange={this.handleChange}
                   value={
-                    order.orderDate ? new Date(order.orderDate) : new Date()
+                    order.DateOrderedISOFormat ? new Date(order.DateOrderedISOFormat) : new Date()
                   }
                   required
                 />
@@ -351,8 +351,8 @@ class OrderFormPage extends React.Component {
                   onChange={this.handleChange}
                   fullWidth={true}
                   value={
-                    order.shipAddress && order.shipAddress.address
-                      ? order.shipAddress.address
+                    order.BusinessPartnerLocation && order.BusinessPartnerLocation.location && order.BusinessPartnerLocation.location.address1
+                      ? order.BusinessPartnerLocation.location.address1
                       : ""
                   }
                   validations={{
@@ -374,8 +374,8 @@ class OrderFormPage extends React.Component {
                   onChange={this.handleChange}
                   fullWidth={true}
                   value={
-                    order.shipAddress && order.shipAddress.city
-                      ? order.shipAddress.city
+                    order.BusinessPartnerLocation && order.BusinessPartnerLocation.location && order.BusinessPartnerLocation.location.city
+                      ? order.BusinessPartnerLocation.location.city
                       : ""
                   }
                   validations={{
@@ -397,8 +397,8 @@ class OrderFormPage extends React.Component {
                   onChange={this.handleChange}
                   fullWidth={true}
                   value={
-                    order.shipAddress && order.shipAddress.country
-                      ? order.shipAddress.country
+                    order.BusinessPartnerLocation && order.BusinessPartnerLocation.location && order.BusinessPartnerLocation.location.countryName
+                      ? order.BusinessPartnerLocation.location.countryName
                       : ""
                   }
                   validations={{
@@ -439,20 +439,20 @@ class OrderFormPage extends React.Component {
             <p style={styles.productList}>Product List: </p>
             <Divider />
 
-            {order.products && (
+            {order.Lines && (
               <div>
                 <GridList cols={1} cellHeight={60}>
-                  {order.products.map((product, index) => (
+                  {order.Lines.map((line, index) => (
                     <GridTile key={index}>
                       <div style={styles.productItem}>
                         <span>
-                          {product.productName}
+                          {line.Product.name}
                           <p>
                             {" "}
-                            Price: AUD ${product.unitPrice}
+                            Price: AUD ${line.Product.id}
                             <IconButton
                               style={styles.productDeleteIcon}
-                              onClick={() => this.removeProduct(product)}
+                              onClick={() => this.removeProduct(line)}
                             >
                               <ActionDelete />
                             </IconButton>

@@ -69,7 +69,7 @@ export function orderReducer(
     case GET_ORDER_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        order: JSON.parse(action.response),
+        order: action.response.salesOrder,
         authenticated: action.authenticated || false
       });
     case GET_ORDER_FAILURE:
